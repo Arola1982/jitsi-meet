@@ -4,6 +4,11 @@ MAINTAINER adam.copley
 
 ENV DEBIAN_FRONTEND noninteractive
 
+ARG DOMAIN
+ARG JICOFO_AUTH_PASSWORD
+ARG JICOFO_SECRET
+ARG JVB_SECRET
+
 # Install wget to be able to pull gpg key
 RUN apt-get update -y
 RUN apt-get install -y \
