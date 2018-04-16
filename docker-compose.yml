@@ -15,12 +15,9 @@ services:
     volumes_from:
       - container:nginx:ro
     ports:
-      - "443:443"
-      - "5222:5222"
-      - "5269:5269"
-      - "5280:5280"
-      - "5347:5347"
       - "10000-10010:10000-10010/udp"
+    expose:
+      - "443"
 
 networks:
   default:
