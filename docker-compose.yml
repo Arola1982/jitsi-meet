@@ -16,6 +16,7 @@ services:
       - container:nginx:ro
     ports:
       - "10000-10010:10000-10010/udp"
+      - "4443:4443"
     expose:
       - "443"
 
