@@ -24,8 +24,6 @@ RUN apt-get update && apt-get install -y \
   debconf-utils \
   nginx
 
-RUN /etc/init.d/nginx start
-
 # Prep debconf to auto include our build args
 RUN echo "jitsi-meet-prosody	jicofo/jicofo-authpassword	password	${JICOFO_AUTH_PASSWORD}" | debconf-set-selections && \
   echo "jitsi-meet-prosody	jicofo/jicofosecret	password	${JICOFO_SECRET}" | debconf-set-selections && \
@@ -42,7 +40,9 @@ RUN echo "jitsi-meet-prosody	jicofo/jicofo-authpassword	password	${JICOFO_AUTH_P
   echo "jitsi-meet-prosody	jitsi-meet-prosody/jvb-hostname	string	${DOMAIN}" | debconf-set-selections && \
   echo "jitsi-meet-web-config	jitsi-meet/jvb-serve	boolean	true" | debconf-set-selections
 
-  RUN apt-get install -y \
+  RUN /etc/init.d/nginx start && \
+    sleep 10 && \
+    apt-get install -y \
     jitsi-meet
 
 COPY startup /startup
