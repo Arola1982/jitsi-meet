@@ -1,5 +1,6 @@
 #!/bin/bash
 
+/etc/init.d/nginx start
 /etc/init.d/prosody start
 /etc/init.d/jicofo start
 

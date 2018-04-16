@@ -21,7 +21,10 @@ RUN echo 'deb https://download.jitsi.org stable/' > /etc/apt/sources.list.d/jits
 
 # Install debconf-utils
 RUN apt-get update && apt-get install -y \
-  debconf-utils
+  debconf-utils \
+  nginx
+
+RUN /etc/init.d/nginx start
 
 # Prep debconf to auto include our build args
 RUN echo "jitsi-meet-prosody	jicofo/jicofo-authpassword	password	${JICOFO_AUTH_PASSWORD}" | debconf-set-selections && \
