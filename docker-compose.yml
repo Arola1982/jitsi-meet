@@ -9,6 +9,10 @@ services:
       context: .
       args:
         DOMAIN: ${DOMAIN}
+        JICOFO_AUTH_PASSWORD: ${JICOFO_AUTH_PASSWORD}
+        JICOFO_SECRET: ${JICOFO_SECRET}
+        JVB_SECRET: ${JVB_SECRET}
+
     volumes_from:
       - container:nginx:ro
 

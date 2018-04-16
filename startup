@@ -5,4 +5,4 @@
 
 /etc/init.d/jitsi-videobridge start
 
-tail -f /var/log/jitsi/jitsi-videobridge.log
+tail -f /var/log/jitsi/jvb.log
