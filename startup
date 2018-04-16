@@ -1,0 +1,8 @@
+#!/bin/bash
+
+/etc/init.d/prosody start
+/etc/init.d/jicofo start
+
+/etc/init.d/jitsi-videobridge start
+
+tail -f /var/log/jitsi/jitsi-videobridge.log

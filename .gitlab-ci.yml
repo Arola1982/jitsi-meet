@@ -1,0 +1,30 @@
+---
+
+stages:
+  - validate
+  - build
+  - deploy
+
+docker-compose:
+  stage: validate
+  environment: production
+  only:
+    - master
+  script:
+    - docker-compose config
+
+build:
+  stage: build
+  only:
+    - master
+  script:
+    - docker-compose build
+
+deploy:
+  stage: deploy
+  environment: production
+  only:
+    - master
+  script:
+    - docker-compose down
+    - docker-compose up -d

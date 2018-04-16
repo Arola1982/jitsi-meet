@@ -1,0 +1,18 @@
+---
+
+version: '2'
+services:
+  openldap:
+    container_name: jitsi-meet
+    image: arola1982/jitsi-meet:latest
+    build:
+      context: .
+      args:
+        DOMAIN: ${DOMAIN}
+    volumes_from:
+      - container:nginx:ro
+
+networks:
+  default:
+    external:
+      name: arola_net
