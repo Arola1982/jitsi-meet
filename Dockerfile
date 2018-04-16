@@ -19,6 +19,9 @@ RUN apt-get update -y
 RUN apt-get install -y \
     jitsi-meet
 
+COPY startup /startup
+RUN chmod +x /startup
+
 EXPOSE 443
 EXPOSE 5222
 EXPOSE 5269
