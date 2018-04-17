@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sed -ri "s/DOCKER_DOMAIN/${DOMAIN}/g" /etc/nginx/sites-enabled/${DOMAIN}
+sed -ri "s/DOCKER_TLD/${TLD}/g" /etc/nginx/sites-enabled/${DOMAIN}
+
 /etc/init.d/nginx start
 /etc/init.d/prosody start
 /etc/init.d/jicofo start

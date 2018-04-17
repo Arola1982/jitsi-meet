@@ -5,6 +5,7 @@ MAINTAINER adam.copley
 ENV DEBIAN_FRONTEND noninteractive
 
 ARG DOMAIN
+ARG TLD
 ARG JICOFO_AUTH_PASSWORD
 ARG JICOFO_SECRET
 ARG JVB_SECRET
@@ -42,6 +43,8 @@ RUN echo "jitsi-meet-prosody	jicofo/jicofo-authpassword	password	${JICOFO_AUTH_P
 
 RUN apt-get install -y \
     jitsi-meet
+
+COPY nginx_vhost.conf /etc/nginx/sites-enabled/${DOMAIN}
 
 COPY startup /startup
 RUN chmod +x /startup
