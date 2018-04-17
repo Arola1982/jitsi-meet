@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 sed -ri "s/DOCKER_DOMAIN/${DOMAIN}/g" /etc/nginx/sites-enabled/${DOMAIN}
 sed -ri "s/DOCKER_TLD/${TLD}/g" /etc/nginx/sites-enabled/${DOMAIN}
 
