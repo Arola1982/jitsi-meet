@@ -1,0 +1,3 @@
+[![pipeline status](http://git.arola.co.uk/web-docker/jitsi-meet/badges/master/pipeline.svg)](http://git.arola.co.uk/web-docker/jitsi-meet/commits/master)
+
+Documentation to follow...
