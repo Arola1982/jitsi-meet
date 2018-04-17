@@ -21,7 +21,8 @@ RUN echo 'deb https://download.jitsi.org unstable/' > /etc/apt/sources.list.d/ji
 
 # Install debconf-utils
 RUN apt-get update && apt-get install -y \
-  debconf-utils
+  debconf-utils \
+  nginx
 
 # Prep debconf to auto include our build args
 RUN echo "jitsi-meet-prosody	jicofo/jicofo-authpassword	password	${JICOFO_AUTH_PASSWORD}" | debconf-set-selections && \
@@ -38,6 +39,10 @@ RUN echo "jitsi-meet-prosody	jicofo/jicofo-authpassword	password	${JICOFO_AUTH_P
   echo "jitsi-meet-web-config	jitsi-meet/jvb-hostname	string	${DOMAIN}" | debconf-set-selections && \
   echo "jitsi-meet-prosody	jitsi-meet-prosody/jvb-hostname	string	${DOMAIN}" | debconf-set-selections && \
   echo "jitsi-meet-web-config	jitsi-meet/jvb-serve	boolean	true" | debconf-set-selections
+
+  RUN /etc/init.d/nginx start && \
+    sleep 10 && apt-get install -y \
+    jitsi-meet
 
 COPY startup /startup
 RUN chmod +x /startup
