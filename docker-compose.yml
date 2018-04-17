@@ -2,7 +2,7 @@
 
 version: '2'
 services:
-  openldap:
+  jitsi-meet:
     container_name: jitsi-meet
     image: arola1982/jitsi-meet:latest
     build:
@@ -17,8 +17,6 @@ services:
     ports:
       - "10000-10010:10000-10010/udp"
       - "4443:4443"
-    expose:
-      - "443"
 
 networks:
   default:
