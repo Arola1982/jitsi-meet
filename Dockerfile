@@ -17,7 +17,7 @@ RUN apt-get install -y \
 
 # Add the jitsi-meet stable repository
 RUN wget -qO - https://download.jitsi.org/jitsi-key.gpg.key | apt-key add -
-RUN echo 'deb https://download.jitsi.org stable/' > /etc/apt/sources.list.d/jitsi-stable.list
+RUN echo 'deb https://download.jitsi.org unstable/' > /etc/apt/sources.list.d/jitsi-unstable.list
 
 # Install debconf-utils
 RUN apt-get update && apt-get install -y \
