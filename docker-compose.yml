@@ -9,6 +9,7 @@ services:
       context: .
       args:
         DOMAIN: ${DOMAIN}
+        TLD: ${TLD}
         JICOFO_AUTH_PASSWORD: ${JICOFO_AUTH_PASSWORD}
         JICOFO_SECRET: ${JICOFO_SECRET}
         JVB_SECRET: ${JVB_SECRET}

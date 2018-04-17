@@ -10,6 +10,9 @@ ARG JICOFO_AUTH_PASSWORD
 ARG JICOFO_SECRET
 ARG JVB_SECRET
 
+ENV DOMAIN ${DOMAIN}
+ENV TLD ${TLD}
+
 # Install wget to be able to pull gpg key
 RUN apt-get update -y
 RUN apt-get install -y \
