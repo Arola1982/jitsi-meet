@@ -15,6 +15,8 @@ services:
         JVB_SECRET: ${JVB_SECRET}
         JICOFO_RAM: ${JICOFO_RAM}
         JVB_RAM: ${JVB_RAM}
+        LOCAL_ADDRESS: ${LOCAL_ADDRESS}
+        PUBLIC_ADDRESS: ${PUBLIC_ADDRESS}
     volumes_from:
       - container:nginx:ro
     ports:

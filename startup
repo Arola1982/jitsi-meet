@@ -1,10 +1,17 @@
 #!/bin/bash
 
+SIP_PROPERTIES_FILE="/etc/jitsi/videobridge/sip-communicator.properties"
+VB_OVERRIDE_FILE="/usr/share/jitsi-videobridge/lib/videobridge.rc"
+
 sed -ri "s/DOCKER_DOMAIN/${DOMAIN}/g" /etc/nginx/sites-enabled/${DOMAIN}
 sed -ri "s/DOCKER_TLD/${TLD}/g" /etc/nginx/sites-enabled/${DOMAIN}
 
 sed -ri "s/Xmx3072m/Xmx${JICOFO_RAM}/" /usr/share/jicofo/jicofo.sh
-sed -ri "s/# VIDEOBRIDGE_MAX_MEMORY=3072m/VIDEOBRIDGE_MAX_MEMORY=${JVB_RAM}/" /usr/share/jitsi-videobridge/lib/videobridge.rc
+sed -ri "s/# VIDEOBRIDGE_MAX_MEMORY=3072m/VIDEOBRIDGE_MAX_MEMORY=${JVB_RAM}/"
+
+echo "org.jitsi.videobridge.AUTHORIZED_SOURCE_REGEXP=focus@auth.${DOMAIN}/.*" > ${SIP_PROPERTIES_FILE}
+echo "org.ice4j.ice.harvest.NAT_HARVESTER_LOCAL_ADDRESS=${LOCAL_ADDRESS}" >> ${SIP_PROPERTIES_FILE}
+echo "org.ice4j.ice.harvest.NAT_HARVESTER_PUBLIC_ADDRESS=${PUBLIC_ADDRESS}" >> ${SIP_PROPERTIES_FILE}
 
 unset TLD
 unset DOMAIN
