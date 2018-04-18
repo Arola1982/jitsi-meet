@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-MAINTAINER adam.copley
+MAINTAINER Adam Copley <adam.copley@arola.co.uk>
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -12,6 +12,8 @@ ARG JVB_SECRET
 
 ENV DOMAIN ${DOMAIN}
 ENV TLD ${TLD}
+ENV JICOFO_RAM ${JICOFO_RAM}
+ENV JVB_RAM ${JVB_RAM}
 
 # Install wget to be able to pull gpg key
 RUN apt-get update -y

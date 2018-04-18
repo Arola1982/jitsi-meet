@@ -13,6 +13,8 @@ services:
         JICOFO_AUTH_PASSWORD: ${JICOFO_AUTH_PASSWORD}
         JICOFO_SECRET: ${JICOFO_SECRET}
         JVB_SECRET: ${JVB_SECRET}
+        JICOFO_RAM: ${JICOFO_RAM}
+        JVB_RAM: ${JVB_RAM}
     volumes_from:
       - container:nginx:ro
     ports:
