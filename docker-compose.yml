@@ -18,7 +18,7 @@ services:
         LOCAL_ADDRESS: ${LOCAL_ADDRESS}
         PUBLIC_ADDRESS: ${PUBLIC_ADDRESS}
     volumes_from:
-      - container:nginx:ro
+      - container:letsencrypt:ro
     ports:
       - "10000-10010:10000-10010/udp"
 
