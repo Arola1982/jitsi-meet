@@ -24,6 +24,7 @@ ENV PUBLIC_ADDRESS ${PUBLIC_ADDRESS}
 # Install wget to be able to pull gpg key
 RUN apt-get update -y
 RUN apt-get install -y \
+    gnupg \
     wget \
     apt-transport-https
 
